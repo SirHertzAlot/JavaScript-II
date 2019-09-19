@@ -58,23 +58,59 @@ const runners = [
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
 let fullNames = [];
+
+runners.forEach(function(first){
+
+  fullNames.push(first.first_name + ` ` + first.last_name)
+
+});
+
+
 console.log(fullNames);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
 let firstNamesAllCaps = [];
+
+let caps = runners.map(letsCap);
+
+function letsCap(upper) {
+ 
+  return upper.first_name.charAt(0).toUpperCase() + upper.first_name.slice(1);
+
+}
+
+firstNamesAllCaps.push(caps);
+
 console.log(firstNamesAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
 let runnersLargeSizeShirt = [];
+
+let sizeLarge = runners.filter(function (runners) {
+  return runners.shirt_size === "L";
+});
+
+runnersLargeSizeShirt.push(sizeLarge);
+
 console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = 0;
-console.log(ticketPriceTotal);
+let ticketPriceTotal = [];
 
+const calc = (acc, donate) => {
+ return acc + donate;
+}
+
+runners.forEach(function(object){
+    ticketPriceTotal.push(object.donation)
+});
+
+ticketTotal = ticketPriceTotal.reduce(calc);
+
+console.log(ticketTotal);
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 

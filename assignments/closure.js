@@ -4,12 +4,26 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+function car(fast) {
+  console.log(`My favorite car is a ${fast}`);
 
+  function hp(alot){
+    console.log(`This car has ${alot} horsepower.`)
+  }
+  hp('755');
+}
+car('Corvette Stringray ZR1');
+
+car();
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
 
 // ==== Challenge 2: Implement a "counter maker" function ====
 const counterMaker = () => {
+  const count = [];
+  const counter = () => {
+    counter.push(count);
+  }
   // IMPLEMENTATION OF counterMaker:
   // 1- Declare a `count` variable with a value of 0. We will be mutating it, so declare it using `let`!
   // 2- Declare a function `counter`. It should increment and return `count`.
